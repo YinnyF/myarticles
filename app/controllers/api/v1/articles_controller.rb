@@ -10,6 +10,23 @@ module Api
         article = Article.find(params[:id])
         render json: {status: "SUCCESS", message: "Loaded article", data: article}, status: :ok
       end
+
+      def create
+        # article_params is a single Hash that contains the params values, must specify exactly what values are allowed in the hash.
+        article = Article.new(article_params)
+
+        if article.save
+          render json: {status: "SUCCESS", message: "Saved article", data: article}, status: :ok
+        else
+          render json: {status: "ERROR", message: "Article not saved", data: article.errors}, status: :unprocessable_entity
+        end
+      end
+
+      private
+        # specify permitted params in article_params
+        def article_params
+          params.require(:article).permit(:title, :body)
+        end
     end
   end
 end
