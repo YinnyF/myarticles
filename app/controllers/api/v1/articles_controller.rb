@@ -1,5 +1,5 @@
 module API
-  module v1
+  module V1
     class ArticlesController < ApplicationController
       def index
         articles = Article.order("created_at DESC")
