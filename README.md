@@ -1,24 +1,28 @@
-# README
+# myarticles
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails RESTful API practise
 
-Things you may want to cover:
+DB: MySQL
+API Testing: Insomnia
 
-* Ruby version
+`http://localhost:3000/api/v1/articles`
 
-* System dependencies
+# Usage
+Install dependencies:
+`bundle install`
 
-* Configuration
+To start server:
+`rails s`
 
-* Database creation
+Start MySQL server, then migrate the db:
+`rails db:migrate`
 
-* Database initialization
+Seed random data in the DB:
+`rails db:seed`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Actions on Article
+1. index the article (GET all articles from db)
+2. show an article (GET one article)
+3. create an article (POST)
+4. destroy an article (DELETE)
+5. update an article (PUT)
